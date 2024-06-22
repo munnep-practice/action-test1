@@ -20,3 +20,7 @@ jobs:
       - name: show Readme.md file
         run: cat README.md
       
+      - name: execute a shell script
+        run: |
+          chmod +x script1.sh           # script needs the execute permission
+          ./script1.sh 
