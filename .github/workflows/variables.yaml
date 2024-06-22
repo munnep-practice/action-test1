@@ -27,7 +27,7 @@ jobs:
           echo $STEP_LEVEL
 
       - name: show the vars from github vars
-      run: echo "show the secret defined at repository level in github:" ${{ vars.USERNAME_PATRICK }} 
+      run: echo "show the variable defined at repository level in github:" ${{ vars.USERNAME_PATRICK }} 
           
       - name: show the secret from github secrets
         run: echo "show the secret defined at repository level in github:" ${{ secrets.PASSWORD_PATRICK }}
