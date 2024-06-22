@@ -14,4 +14,4 @@ jobs:
       - name: get repo
         env:
           STEP_LEVEL: step
-        run: echo $WORFLOW_LEVEL and {{ env.JOB_LEVEL}} and $STEP_LEVEL again
+        run: echo "$WORFLOW_LEVEL and {{ env.JOB_LEVEL}} and $STEP_LEVEL again"
