@@ -1,0 +1,17 @@
+name: variable and secret usage
+
+on: push
+env:
+  WORKFLOW_LEVEL: workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      JOB_LEVEL: Job 
+  
+    steps:
+      - name: get repo
+        env:
+          STEP_LEVEL: step
+        run: echo $WORFLOW_LEVEL and {{ env.JOB_LEVEL}} and $STEP_LEVEL again
