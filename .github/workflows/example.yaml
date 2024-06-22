@@ -24,3 +24,11 @@ jobs:
         run: |
           chmod +x script1.sh           # script needs the execute permission
           ./script1.sh 
+          
+  deploy:
+    needs: build                        # we need the need job to complete first before starting this one
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: just say hello
+        run: echo hello again
