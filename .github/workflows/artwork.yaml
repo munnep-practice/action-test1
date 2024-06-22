@@ -1,0 +1,17 @@
+name: example
+
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: install cowsay program
+        run: sudo apt install -y cowsay
+
+      - name: use the cowsay program
+        run: cowsay -y 'I love Linux!' > artwork.txt     
+
+      - name: show the artwork from the file
+        run: cat artwork.txt
+      
