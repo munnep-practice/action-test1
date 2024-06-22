@@ -16,6 +16,8 @@ jobs:
           STEP_LEVEL: step
         run: echo $WORKFLOW_LEVEL and ${{ env.JOB_LEVEL }} and $STEP_LEVEL again
 
+        
+   
       - name: show variables2
         env:
           STEP_LEVEL: step
@@ -23,6 +25,6 @@ jobs:
           echo $WORKFLOW_LEVEL
           echo ${{ env.JOB_LEVEL}} 
           echo $STEP_LEVEL
-
+            
       - name: show the secret from github secrets
-        run: echo show the secret defined at repository level in github: ${{ secrets.PASSWORD_PATRICK}}
+        run: echo "show the secret defined at repository level in github:" ${{ secrets.PASSWORD_PATRICK }}
