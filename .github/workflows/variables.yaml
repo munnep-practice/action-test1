@@ -14,12 +14,12 @@ jobs:
       - name: show variables1
         env:
           STEP_LEVEL: step
-        run: echo $WORFLOW_LEVEL and ${{ env.JOB_LEVEL }} and $STEP_LEVEL again
+        run: echo $WORKFLOW_LEVEL and ${{ env.JOB_LEVEL }} and $STEP_LEVEL again
 
       - name: show variables2
         env:
           STEP_LEVEL: step
         run: | 
-          echo $WORFLOW_LEVEL
+          echo $WORKFLOW_LEVEL
           echo {{ env.JOB_LEVEL}} 
           echo $STEP_LEVEL
