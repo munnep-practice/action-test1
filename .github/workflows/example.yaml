@@ -24,6 +24,17 @@ jobs:
         run: |
           chmod +x script1.sh           # script needs the execute permission
           ./script1.sh 
+
+      - name: file needed on the deploy job
+        run: echo we need this file on the deploy job > file_for_deploy.txt
+
+      - name: upload file_for_deploy.txt as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: file_for_deploy-artifact
+          path: file_for_deploy.txt
+
+
           
   deploy:
     needs: build                        # we need the need job to complete first before starting this one
@@ -32,3 +43,15 @@ jobs:
     steps:
       - name: just say hello
         run: echo hello again
+
+      
+      - name: download file_for_deploy.txt as artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: file_for_deploy-artifact
+
+      - name: show the files
+        run: ls -al
+
+      - name: show content of the file
+        run: cat file_for_deploy.txt
