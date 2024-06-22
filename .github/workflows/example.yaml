@@ -12,6 +12,11 @@ jobs:
       - name: Run a one-line script
         run: echo Hello Patrick
 
+      - name: Run a multi-line script
+        run: | 
+          echo Hello Patrick
+          echo Second Hello Patrick        
+
       - name: show Readme.md file
         run: cat README.md
       
