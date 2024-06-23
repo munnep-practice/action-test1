@@ -1,0 +1,15 @@
+name: run manually action
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    concurrency: 
+        group: test
+        cancel-in-progress: true # if true then the same previous job will be canceled. False then it will wait till previous is finished before starting
+        
+  
+    steps:
+      - name: echo something
+        run: echo because of the workflow_dispatch setting this can be run manually
