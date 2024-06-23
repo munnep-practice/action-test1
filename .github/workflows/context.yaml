@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show info
-        run: echo runs on ${{ runner.environment }} and name of the job is ${{ runner.name }} 
+        run: | 
+          echo runs on ${{ runner.environment }} and name of the job is ${{ runner.name }} 
+          echo thi sha number ${{ github.sha }}
