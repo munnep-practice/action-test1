@@ -1,4 +1,4 @@
-name: variable and secret usage
+name: run manually action
 
 on: workflow_dispatch
 
