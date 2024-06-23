@@ -12,3 +12,19 @@ jobs:
     steps:
       - name: echo message
         run: echo ${{ matrix.message}}
+
+  deploy:
+    needs: build
+    strategy:
+      max-parallel: 2           # maximum of 2 jobs running
+      matrix:
+        os: [ubuntu-latest, ubuntu-20.04 ]
+        message: ["this is the third test", "this is the fourth test"]
+        exclude:            # don't execute the following
+          - os: ubuntu-20.04
+            message: "this is the fourth test"
+    runs-on: ${{ matrix.os}}
+    steps:
+      - name: echo message
+        run: echo ${{ matrix.message}}
+  
