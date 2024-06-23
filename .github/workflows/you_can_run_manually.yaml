@@ -1,0 +1,11 @@
+name: variable and secret usage
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: show the vars from github vars
+        run: echo because of the workflow_dispatch setting this can be run manually
