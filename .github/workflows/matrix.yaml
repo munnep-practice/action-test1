@@ -1,0 +1,14 @@
+name: matrix example
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    strategy:
+        matrix:
+          os: [ubuntu-latest, ubuntu-20.04 ]
+          message: ["this is the first test", "this is the second test"]
+    runs-on: ${{ matrix.os}}
+    steps:
+      - name: echo message
+        run: echo ${{ matrix.message}}
