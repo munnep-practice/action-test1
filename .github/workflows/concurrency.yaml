@@ -1,4 +1,4 @@
-name: run manually action
+name: concurrentcy example
 
 on: workflow_dispatch
 
@@ -8,7 +8,6 @@ jobs:
     concurrency: 
         group: test
         cancel-in-progress: true # if true then the same previous job will be canceled. False then it will wait till previous is finished before starting
-        
   
     steps:
       - name: echo something
