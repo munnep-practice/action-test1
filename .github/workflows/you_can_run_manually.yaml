@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-      - name: show the vars from github vars
+      - name: echo something
         run: echo because of the workflow_dispatch setting this can be run manually
