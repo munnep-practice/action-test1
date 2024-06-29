@@ -1,0 +1,19 @@
+name: expression example
+
+on: push
+env:
+  WORKFLOW_LEVEL: workflow
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      JOB_LEVEL: Job 
+  
+    steps:
+      - name: show variables1
+        env:
+          STEP_LEVEL: step
+        run: echo this will only run because it of the if expression to execute on main branch
+
