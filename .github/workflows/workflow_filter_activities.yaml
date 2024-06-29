@@ -1,0 +1,13 @@
+name: workflow and activity
+
+on: 
+  push:
+    tags: 
+     - v*.*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: reason for running
+        run: echo This was run because we pushed a tag to the repo - ${{ github.ref }}
