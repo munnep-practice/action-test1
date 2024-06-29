@@ -3,7 +3,7 @@ name: workflow and activity
 on: 
   push:
     tags: 
-     - v*.*
+     - v*.*            # this will only trigger when a new tag is added that matches v1.1 for example. 
 jobs:
   build:
     runs-on: ubuntu-latest
