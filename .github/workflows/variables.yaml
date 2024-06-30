@@ -31,3 +31,30 @@ jobs:
           
       - name: show the secret from github secrets
         run: echo "show the secret defined at repository level in github:" ${{ secrets.PASSWORD_PATRICK }}
+
+  show_variables_1:
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.step2.outputs.test }}  
+    steps:
+      - name: variable set to use at next step
+        run: echo "$DOCKVER_VERSION=$(docker -v)" >> $GITHUB_ENV
+
+      - name: output the environment variable from previons step
+        run: echo ${{ env.DOCKER_VERSION }} 
+        
+      - id: step1
+        run: echo "test=hello" >> "$GITHUB_OUTPUT"
+      - id: step2
+        run: echo "test=world" >> "$GITHUB_OUTPUT"
+    
+  show_variables_2:
+        runs-on: ubuntu-latest
+        needs: show_variables_1
+        steps:
+          - env:
+              OUTPUT1: ${{needs.show_variables_1.outputs.output1}}
+              OUTPUT2: ${{needs.show_variables_1.outputs.output2}}
+            run: echo "$OUTPUT1 $OUTPUT2"   
+  
