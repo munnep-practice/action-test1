@@ -39,7 +39,7 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}  
     steps:
       - name: variable set to use at next step
-        run: echo "$DOCKVER_VERSION=$(docker -v)" >> $GITHUB_ENV
+        run: echo "DOCKVER_VERSION=$(docker -v)" >> $GITHUB_ENV
 
       - name: output the environment variable from previons step
         run: echo ${{ env.DOCKER_VERSION }} 
