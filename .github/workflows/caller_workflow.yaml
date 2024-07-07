@@ -4,3 +4,6 @@ on:
 jobs:
   caller-workflow:
     uses: ./.github/workflows/called_workflow.yaml
+
+  caller-workflow_complete_path:
+    uses: munnep-practice/action-test1/.github/workflows/called_workflow.yaml
