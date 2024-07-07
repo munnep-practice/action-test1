@@ -1,0 +1,6 @@
+name: Caller Workflow
+on:
+  push
+jobs:
+  caller-workflow:
+    uses: ./.github/workflows/called_workflow.yaml
